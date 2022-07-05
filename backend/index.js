@@ -5,7 +5,10 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const { validateMine } = require('./schemas/validator');
 
+let request;
+const { error, value } = validateMine(request)
 
 //docker initialisation
 const swaggerDefinition = {
