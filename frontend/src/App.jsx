@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import context from './MyContext'
 import Home from './screens/Home'
+import Login from './screens/Login'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'   
 import './App.css'
 
@@ -12,8 +13,8 @@ function App() {
     <Router>
     <Routes>
      <Route exact path="/" element={<Home />} />
-        {/* <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Signup />} />  */}
+         <Route exact path="/login" element={<Login />} />
+        {/*<Route exact path="/signup" element={<Signup />} />  */}
         {/* <Route path="/contact" element={<Contact />} /> */}
     </Routes>
     </Router>

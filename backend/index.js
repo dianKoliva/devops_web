@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const { validateMine } = require('./schemas/validator');
+const { validateMine } = require('./models/validator');
 
 let request;
 const { error, value } = validateMine(request)
@@ -16,7 +16,20 @@ const swaggerDefinition = {
     info: {
         tittle: "My apis",
         version: "1.0.0"
-    }
+    },
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                in: 'header',
+                bearerFormat: 'JWT',
+            }
+        }
+    },
+    security: [{
+        bearerAuth: []
+    }]
 };
 
 const options = {
