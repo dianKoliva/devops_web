@@ -16,8 +16,9 @@ const Signup= () => {
     const [password,setpassword]=useState("");
     const navigate=useNavigate();
 
-    function log(){
+    function signup(){
       let data = {
+        name:name,
         email: email,
         password: password
     }
@@ -46,11 +47,21 @@ if(res.data.message="valid"){
 
 <div class="col-xl-6  col-sm-12">
 
-<h2 class='lead'>Login to continue</h2>
+<h2 class='lead'>Signup To continue</h2>
 
 
 <div className='row'>
-<form action="" className=''>            
+<form action="" className=''>   
+<div class="mb-3">
+                            <label for="last-name" class="col-form-label">
+                          user name
+                        </label>
+
+                            <input value={name} onChange={(e)=>{
+                                setName(e.target.value);
+                            }} type="text" class="form-control" id=" last-name"/>
+
+                        </div>         
                         <div class="mb-3">
                             <label for="last-name" class="col-form-label">
                            Email
@@ -72,13 +83,11 @@ if(res.data.message="valid"){
                     </form>
 
                     <div class="enW">
-                    <button type="button" onClick={(e)=>{e.preventDefault();log()}} class="btn col-12  btn-primary">Login</button>
+                    <button type="button" onClick={(e)=>{e.preventDefault();signup()}} class="btn col-12  btn-primary">Login</button>
                     </div>
-<div class="d-flex flex-row justify-content-between py-4">
+<div class="d-flex flex-row  justify-content-start py-4">
 
-<div class="p-2">
-    <a href="">Forgot password?</a>
-</div>
+
 <Link to="/signup">
 
   <div class="p-2">
